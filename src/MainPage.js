@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Book from './Book'
 import { Link } from 'react-router-dom'
 const MainPage = (props) => {

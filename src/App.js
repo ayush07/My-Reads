@@ -3,7 +3,7 @@ import './App.css'
 import Search from './Search';
 import MainPage from './MainPage';
 import * as BooksAPI from './BooksAPI';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 class BooksApp extends React.Component {
 
@@ -18,10 +18,12 @@ class BooksApp extends React.Component {
 
   }
   moveToShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf)
-    BooksAPI.getAll().then((e) => {
-      this.setState({ books: e });
+    BooksAPI.update(book, shelf).then((e) => {
+      BooksAPI.getAll().then((e) => {
+        this.setState({ books: e });
+      })
     })
+
   }
   render() {
 
